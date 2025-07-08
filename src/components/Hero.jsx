@@ -54,10 +54,22 @@ const Hero = () => {
                 pin: true,
             }
         });
-        videoRef.current.onloadedmetadata = () => {
-            tl.to(videoRef.current, {
-                currentTime: videoRef.current.duration
-            })
+
+        // Ensure video is loaded and ready before animating
+        if (videoRef.current) {
+            // If video is already loaded
+            if (videoRef.current.readyState >= 2) {
+                tl.to(videoRef.current, {
+                    currentTime: videoRef.current.duration
+                });
+            } else {
+                // Wait for video to load
+                videoRef.current.onloadedmetadata = () => {
+                    tl.to(videoRef.current, {
+                        currentTime: videoRef.current.duration
+                    });
+                };
+            }
         }
     }, []);
 
@@ -105,6 +117,8 @@ const Hero = () => {
                 ref = {videoRef}
                 src='/videos/output.mp4'
                 muted
+                // autoPlay
+                // loop
                 playsInline
                 preload="auto"
             />

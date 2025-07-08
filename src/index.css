@@ -140,11 +140,11 @@ body {
         @apply relative min-h-dvh w-full overflow-hidden;
 
         #c-left-leaf {
-            @apply absolute left-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
+            @apply absolute left-0 bottom-0 md:w-fit w-1/3;
         }
 
         #c-right-leaf {
-            @apply absolute right-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
+            @apply absolute right-0 bottom-0 md:w-fit w-1/3;
         }
 
         .list {
@@ -155,7 +155,7 @@ body {
             }
 
             .loved {
-                @apply space-y-8 w-full md:w-fit pb-20 md:pb-0;
+                @apply space-y-8 w-full px-4 md:px-6 md:w-auto pb-20 md:pb-0;
             }
 
             h2 {
